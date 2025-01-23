@@ -7,7 +7,7 @@ resource "aws_instance" "web2" {
   user_data              = file("setup.sh")
   vpc_security_group_ids = [aws_security_group.secgroup1.id]
   tags = {
-    Name = "${var.Name}-${var.Env}"
+    Name = "${var.Name}-${var.Env}-${count.index + 1}"
   }
 }
 
